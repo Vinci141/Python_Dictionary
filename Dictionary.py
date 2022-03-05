@@ -4,6 +4,30 @@
 Time and space complexity of creating a dictionary
 The time complexity to create a dictionary is O(len(dict)), because when we create a dictionary,
 the hash function has to calculate hash values for each element in the dictionary. The space complexity to create a dictionary is O(N).
+
+Time and space complexity of accessing an element in a dictionary
+The time complexity to access an element in a dictionary is O(1) and the space complexity is also O(1), as we are not using any additional memory to access the element.
+
+Time and space complexity of modifying the value in a dictionary
+The time complexity to change the value of the existing key is O(1), because we are just assigning the new value to a key. 
+The space complexity is also O(1), as we are not using any extra space to modify the value of a key.
+
+Time and space complexity of inserting a key-value pair in a dictionary
+The time complexity to insert an element in a dictionary is O(1), but sometimes based on the hash function it takes amortized or O(N) time complexity. 
+The space complexity for adding a key-value pair is O(1)
+
+Time and space complexity of traversing a dictionary
+The time complexity to traverse a dictionary is O(N), as we are iterating through each element one by one.
+The space complexity is O(1) because we are not using any additional space.
+
+
+Time and space complexity to search for a value in a Dictionary
+The time complexity to search for a value in dict_1 is O(N), as the for loop iterates through all pairs of dictionaries one by one. 
+The space complexity is O(1) because we are not using any additional space to search for a value.
+
+Time and space complexity to remove an element from a dictionary
+The time complexity to remove a key-value pair is O(1) in the average case, but it is O(N) in the amortized worst case. 
+The space complexity is O(1) because we are not using any additional memory space.
 '''
 import datetime
 print("Today's Date is :",datetime.datetime.now().date())
