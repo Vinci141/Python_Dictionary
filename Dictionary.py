@@ -1,5 +1,8 @@
 ################### Python Built in datastructures - Dictionary ###################
 
+import datetime
+print("Today's Date is :",datetime.datetime.now().date())
+
 from termcolor import colored
 print(colored("Python Built in datastructures - Dictionary",'red','on_yellow'))
 my_dictionary = {'name':'vinil','age':'33'}
