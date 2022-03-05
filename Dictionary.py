@@ -69,3 +69,9 @@ print("Tuple made from Dictionary : \nSYNTAX - sum(remaining_dict.items(),()) :\
 print("\n\n")
 print("List from a Dictionary : \nSYNTAX : list(myDict.items()) \n",list(myDict.items()))
 print("\n\n")
+
+
+print("Printing dictionary into CSV File using Pandas library")
+import pandas as pd
+pd.DataFrame(family).to_csv("family.csv", index=False)
+print("\n\n")
