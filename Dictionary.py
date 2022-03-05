@@ -58,3 +58,5 @@ def removekey(d,key):
 key_to_remove=2
 remaining_dict = removekey(new_dict2,key_to_remove)
 print("Remaining Elements:\n",remaining_dict)
+
+print(remaining_dict.__contains__(1)) # check if given KEY exist in dictionary
