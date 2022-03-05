@@ -107,3 +107,13 @@ print("Printing dictionary into CSV File using Pandas library")
 import pandas as pd
 pd.DataFrame(family).to_csv("family.csv", index=False)
 print("\n\n")
+
+#Python program to filter dict based on some criteria
+ini_dict = {'a': 1, 'b': -3, 'c': 2, 'd': -6}
+print("Initial Dictionary:", ini_dict)
+result1 = dict((k, v) for k, v in ini_dict.items() if v >= 0)
+print("Updated Dictionary using filter criteria if value > 0: -->", result1)
+# Python program to filter dict based on some criteria c
+result2 = dict(filter(lambda x: x[1] > 0, ini_dict.items()))
+print("Updated Dictionary using Lambda Function: -->", result2)
+
