@@ -1,0 +1,1650 @@
+A dictionary is a collection of key-value pairs that are ordered, mutable, and indexed by keys. 
+The key-value pairs in a dictionary are enclosed within the curly braces {} and are separated by commas. A colon(:) separates the key from its corresponding value.
+
+The keys in a dictionary must be unique, whereas the values can be duplicated. The values in a dictionary can be of any data type, 
+but the keys must be of an immutable data type, such as strings, numbers, tuples.
+
+The following example represents a dictionary.
+
+Python Dictionary Key Value
+Creating a Dictionary
+We can create a dictionary in python
+
+By placing the sequence of key-value within the curly brackets.
+By using the inbuilt dict() constructor
+Using curly braces
+We can create a dictionary by placing all the key:value pairs within the curly brackets, separated by commas.
+
+#creating an empty dictionary
+dict_1 = {}
+print(dict_1)
+#Output: {}
+
+#creating a dictionary with key:value pairs
+dict_2 = {'Name' : 'John', 'Age': 10, 'City': 'London'}
+print(dict_2)
+#Output: {'Name': 'John', 'Age': 10, 'City': 'London'}
+Using dict()
+The dict() constructor takes an iterable or keyword argument and converts it to a dictionary. If no arguments are passed, the dict() function creates an empty dictionary.
+
+If an iterable is passed as an argument, the iterable must contain an iterable of two objects, where the first object represents keys, and the second object represents values.
+
+#creating an empty dictionary
+dict_1 = dict()
+print(dict_1)
+#Output: {}
+
+#creating a dictionary with key:value pairs 
+dict_2 = dict({'Name' : 'John', 'Age': 10, 'City': 'London'})
+print(dict_2)
+#Output: {'Name': 'John', 'Age': 10, 'City': 'London'}
+
+#creating a dictionary from a list of tuples
+dict_3 = dict([('a', 'A'), ('b', 'B'), ('c', 'C')])
+print(dict_3)
+#Output: {'a': 'A', 'b': 'B', 'c': 'C'}
+
+#creating a dictionary from a list of lists
+dict_4 = dict([[1, 'red'], [2, 'black'], [3, 'green']])
+print(dict_4)
+#Output: {1: 'red', 2: 'black', 3: 'green'}
+
+#creating a dictionary from keyword arguments
+dict_5 = dict(a = 1, b = 2)
+print(dict_5)
+#Output: {'a': 1, 'b': 2}
+Time and space complexity of creating a dictionary
+The time complexity to create a dictionary is O(len(dict)), because when we create a dictionary,
+the hash function has to calculate hash values for each element in the dictionary. The space complexity to create a dictionary is O(N).
+
+Accessing elements from a dictionary
+The values in the dictionary are not indexed by integers. In order to access the values, we place the key within the square brackets.
+
+#syntax:
+dict_name[key]
+Example,
+
+dict_1 = {'Name' : 'John', 'Age': 10, 'City': 'London'}
+
+#Accessing value of key 'Name'
+print(dict_1['Name'])
+#Output: John
+
+#Accessing value of key 'Age'
+print(dict_1['Age'])
+#Output: 10
+
+#Accessing value of key 'City'
+print(dict_1['City'])
+#Output: London
+The program raises a KeyError exception if we try to access the key which is not present in the dictionary.
+
+In the following example, we try to access the value of key ‘address’ in dict_1, as the key ‘address’ is not present in the dictionary, the program throws an error.
+
+dict_1 = {'Name' : 'John', 'Age': 10, 'City': 'London'}
+print(dict_1['address'])
+#Output: KeyError: 'address'
+Time and space complexity of accessing an element in a dictionary
+The time complexity to access an element in a dictionary is O(1) and the space complexity is also O(1), as we are not using any additional memory to access the element.
+
+Modifying the values in a Dictionary
+We can modify the value of an existing key, by assigning a new updated value to the key.
+
+#syntax:
+Dict_name[key] = new value
+Example,
+
+dict_1 = {'A': 'red', 'B': 'black', 'C': 'green'}
+
+#changing the value of key 'B' to 'white'
+dict_1['B'] = 'white'
+
+print(dict_1)
+#Output: {'A': 'red', 'B': 'white', 'C': 'green'}
+Time and space complexity of modifying the value in a dictionary
+The time complexity to change the value of the existing key is O(1), because we are just assigning the new value to a key.
+The space complexity is also O(1), as we are not using any extra space to modify the value of a key.
+
+Inserting a key-value pair in a Dictionary
+There are two ways to add a new key-pair in a dictionary
+
+By assigning the value to a new key
+By using update() method
+Assigning value to a new key
+We can add a new key-value pair by simply assigning a new key within the square brackets with its value. If the key already exists in the dictionary, 
+
+then the value for the key gets changed or modified.
+
+#syntax:
+dict_name[newkey] = value
+Consider a dictionary dict_1 {‘A’: ‘red’, ‘B’: ‘black’, ‘C’: ‘green’}. The statement dict_1[‘D’] = ‘white’ adds a new key value pair to the dict_1. But, the dict_1[‘B’] = ‘blue’ modifies the value of existing key ‘B’ to  ‘blue’ because the key ‘B’ already pre-exists in the dictionary.
+
+dict_1 = {'A': 'red', 'B': 'black', 'C': 'green'}
+#Adding a pair {'D': 'white'}
+dict_1['D'] = 'white'
+print(dict_1)
+#Output: {'A': 'red', 'B': 'black', 'C': 'green', 'D': 'white'}
+
+dict_1 = {'A': 'red', 'B': 'black', 'C': 'green'}
+#Adding a pair {'B' : blue'} will change the value
+#of the key 'B'
+dict_1['B'] ='blue'
+print(dict_1)
+#Output: {'A': 'red', 'B': 'blue', 'C': 'green'}
+Using update() method
+The update() method takes an iterable with key-value pairs as a parameter and inserts the specified key-value pairs into the dictionary.
+
+The syntax to add key-value pairs using the update() method is as follows.
+
+#syntax:
+dict_name.update(iterable)
+#The iterable can be a dictionary or an iterable object with key value pairs
+Example,
+
+#passing a dictionary to update method
+dict_1 = {1: 'red', 2: 'black', 3: 'green'}
+dict_1.update({4: 'white', 5: 'brown'})
+print(dict_1)
+#Output: {1: 'red', 2: 'black', 3: 'green', 4: 'white', 5: 'brown'}
+
+#passing a list of tuples to update method
+dict_1 = {1: 'red', 2: 'black', 3: 'green'}
+dict_1.update([(4, 'white'), (5, 'brown')])
+print(dict_1)
+#Output: {1: 'red', 2: 'black', 3: 'green', 4: 'white', 5: 'brown'}
+If we pass a key-value pair to the update() method, and the key is pre-existing in the dictionary then the value of the key gets modified with its new value.
+
+For example, consider a dictionary dict_1 = {1: ‘red’, 2: ‘black’, 3: ‘green’}. The dict_1.update({1 : ‘white’}) will change the value of key 1 to white and the dictionary dict_1 is updated to {1: ‘white’, 2: ‘black’, 3: ‘green’}.
+
+dict_1 = {1: 'red', 2: 'black', 3: 'green'}
+dict_1.update({1 : 'white'})
+print(dict_1)
+#Output: {1: 'white', 2: 'black', 3: 'green'}
+Time and space complexity of inserting a key-value pair in a dictionary
+The time complexity to insert an element in a dictionary is O(1), but sometimes based on the hash function it takes amortized or O(N) time complexity. The space complexity for adding a key-value pair is O(1)
+
+Traversing a Dictionary
+We can use a for loop to traverse through keys of the dictionary. In the following example, a for loop iterates through each key of the dict_1, and prints the key and its corresponding value in each iteration.
+
+dict_1 = {'Name' : 'John', 'Age': 10, 'City': 'London'}
+for key in dict_1:
+    print(key, dict_1[key])
+Output:
+
+Name John
+Age 10
+City London
+Time and space complexity of traversing a dictionary
+The time complexity to traverse a dictionary is O(N), as we are iterating through each element one by one. The space complexity is O(1) because we are not using any additional space.
+
+Searching for a value in a Dictionary
+In the following program, we declare a user-defined function searchValue that takes a dictionary dict_1 and value val, as a parameter. We use for loop to search for a given value val in dict_1.
+
+A for loop iterates over each key in dict_1. In each iteration, we access the value of the key using dict_1[key] and compare it with the given value val. If the comparison returns True, we return the key and value as output. Otherwise, we return “Value not found” as output.
+
+def searchValue(dict_1, val):
+    for key in dict_1:
+        if dict_1[key] == val:
+            return key, val
+    return "Value not found"
+
+my_dict = {'Name' : 'John', 'Age': 10, 'City': 'London'}
+
+#searching for value London in dict_1
+print(searchValue(my_dict, 'London'))
+#Output: ('City', 'London')
+
+#Searching for value Newyork in dict_1
+print(searchValue(my_dict, 'Newyork'))
+#Output: Value not found
+Time and space complexity to search for a value in a Dictionary
+The time complexity to search for a value in dict_1 is O(N), as the for loop iterates through all pairs of dictionaries one by one. The space complexity is O(1) because we are not using any additional space to search for a value.
+
+Removing an element from a dictionary
+We can remove a key-value pair from a dictionary by using the following method.
+
+pop()
+popitem()
+clear()
+pop()
+The pop() function takes the key and a default_value[optional] as a parameter and removes the specified key and its corresponding value from the dictionary. The pop() function also returns the value of the removed key.
+
+If the key is not found in the dictionary, the pop() function returns the default_value, if provided. Otherwise, it raises a keyError exception.
+
+The syntax for using the pop() function with a dictionary is as follows.
+
+#syntax:
+dict_name.pop(key, default_value)
+Example 1: Passing an existing key as a parameter to the pop() function
+
+dict_1 = {1: 'red', 2: 'black', 3: 'green'}
+
+#Removing the key 2 from dict_1
+val = dict_1.pop(2)
+
+print("Updated dictionary: ", dict_1)
+#Output: Updated dictionary:  {1: 'red', 3: 'green'}
+
+print("Value of the removed key: ", val)
+#Output: Value of the removed key:  black
+Example 2: Passing a non-existing key and a default_value as a parameter to the pop() function
+
+dict_1 = {1: 'red', 2: 'black', 3: 'green'}
+val = dict_1.pop(4, "Key not found")
+print(val)
+#Output: Key not found
+popitem()
+The popitem() method removes the last inserted key-value pair from the dictionary and returns the removed key-value pair as a tuple. The syntax to use the popitem() method is as follows.
+
+#syntax:
+dict_name.popitem()
+Example,
+
+dict_1 = {1: 'red', 2: 'black', 3: 'green'}
+print("Original dictionary: ", dict_1)
+key_val = dict_1.popitem()
+print("Updated dictionary: ", dict_1)
+print("Removed key-value pair: ", key_val)
+Output:
+
+Original dictionary:  {1: 'red', 2: 'black', 3: 'green'}
+Updated dictionary:  {1: 'red', 2: 'black'}
+Removed key-value pair:  (3, 'green')
+clear()
+The clear() method removes all the key-value pairs from a dictionary. The syntax to use the clear() method with a dictionary is given below.
+
+#syntax:
+dict_name.clear()
+Example,
+
+dict_1 = {1: 'red', 2: 'black', 3: 'green'}
+print("Original dictionary: ", dict_1)
+dict_1.clear()
+print("Updated dictionary: ", dict_1)
+Output:
+
+Original dictionary:  {1: 'red', 2: 'black', 3: 'green'}
+Updated dictionary:  {}
+del keyword
+The del keyword can be used to remove the key with its corresponding value.
+
+#syntax:
+del dict_name[key] #removes key and its corresponding value
+del dict_name #deletes the whole dictionary
+Example,
+
+#Removing the key 1
+dict_1 = {1: 'red', 2: 'black', 3: 'green'}
+del dict_1[1]
+print(dict_1)
+#Output: {2: 'black', 3: 'green'}
+
+#Deleteing the whole dictionary
+dict_1 = {1: 'red', 2: 'black', 3: 'green'}
+del dict_1
+print(dict_1)
+#Output: NameError: name 'dict_1' is not defined
+Time and space complexity to remove an element from a dictionary
+The time complexity to remove a key-value pair is O(1) in the average case, but it is O(N) in the amortized worst case. The space complexity is O(1) because we are not using any additional memory space.
+
+Dictionary Methods
+copy()
+In python, the copy() function returns a shallow copy of the dictionary, i.e. it creates a new object that stores the original element reference.
+
+The syntax to use the copy() method is as follows.
+
+#syntax:
+dict_name.copy()
+For example, consider a dictionary dict_1 = {1: ‘A’, 2: ‘B’, 3: [‘a’, ‘b’]}. The dict_1.copy() copies the key-value pairs of dict_1 to dict_2. A change in non-iterable element of dict_1 doesn’t have any effect in dict_2. Whereas for iterable element such as list, the changes are reflected in dict_2 as well.
+
+dict_1 = {1: 'A', 2: 'B', 3: ['a', 'b']}
+print("dict_1: ", dict_1)
+dict_2 = dict_1.copy()
+print("dict_2: ", dict_2)
+
+dict_1[2] = 'abc' #Modifying a non-iterable element
+dict_1[3].append('c') #Modifying an iterable element
+print("dict_1: ", dict_1)
+print("dict_2: ", dict_2)
+Output:
+
+dict_1:  {1: 'A', 2: 'B', 3: ['a', 'b']}
+dict_2:  {1: 'A', 2: 'B', 3: ['a', 'b']}
+dict_1:  {1: 'A', 2: 'abc', 3: ['a', 'b', 'c']}
+dict_2:  {1: 'A', 2: 'B', 3: ['a', 'b', 'c']}
+fromkeys()
+The fromkeys() methods create a new dictionary from the specified sequence and the given value. The syntax of fromkeys() method is as follows.
+
+#syntax:
+dict.fromkeys(sequence, val)
+Parameters:
+
+sequence: An iterable specifying the keys of a new dictionary.
+val[optional]: The value for all the keys. The default value val is None.
+#Mapping keys with default value None
+seq = ('A', 'B', 'C')
+new_dict = dict.fromkeys(seq)
+print(new_dict)
+#Output: {'A': None, 'B': None, 'C': None}
+
+#Mapping keys with value 0
+seq = ('A', 'B', 'C')
+val = 0
+new_dict = dict.fromkeys(seq, val)
+print(new_dict)
+#Output: {'A': 0, 'B': 0, 'C': 0}
+get()
+The get() method takes a key and a default_value[optional] as parameters and returns the value of the specified key if the key is found in a dictionary.
+
+But, if the key is not found in the dictionary, the get() method returns the default_value if it is provided in the get() function. Otherwise, it returns None.
+
+The syntax to use the get() method is as follows.
+
+#syntax:
+dict_name.get(key, default_value)
+Example,
+
+dict_1 = {1: 'A', 2: 'B', 3: 'C'}
+
+#Getting the value for key 3
+print(dict_1.get(3))
+#Output:C
+
+#Getting the value for a non-existing key 5
+print(dict_1.get(5))
+#Output: None
+
+#passing a non-existing key and default_value
+#to the get() method
+print(dict_1.get(5, "Not Found"))
+#Output: Not Found
+items()
+The items() method returns the view object of a dictionary that contains all the key-value pairs of the dictionary as a list of tuples. The syntax for the items() method is given below.
+
+#syntax:
+dict_name.items()
+Example,
+
+dict_1 = {1: 'A', 2: 'B', 3: 'C'}
+print(dict_1.items())
+#Output: dict_items([(1, 'A'), (2, 'B'), (3, 'C')])
+keys()
+The keys() function returns a view object of a dictionary that contains all the keys of the dictionary as a list. The syntax for the keys() method is given below.
+
+#syntax:
+dict_name.keys()
+Example,
+
+dict_1 = {1: 'A', 2: 'B', 3: 'C'}
+print(dict_1.keys())
+#Output: dict_keys([1, 2, 3])
+values()
+The values() function returns a view object of a dictionary that contains all the values of the dictionary as a list. The syntax for the values() method is given below.
+
+#syntax:
+dict_name.values()
+Example,
+
+dict_1 = {1: 'A', 2: 'B', 3: 'C'}
+print(dict_1.values())
+#Output: dict_values(['A', 'B', 'C'])
+setdefault()
+The setdefault() method takes a key and a default_value[optional] as parameters and returns the value of the specified key if the key is found in a dictionary.
+
+But if the key is not found in the dictionary, the setdefault() method inserts the key with the default_value if provided as a key-value pair.
+
+If the default_value is not provided and the key doesn’t exist in the dictionary, the key with the value of None is added to the dictionary.
+
+The syntax of setdefault() function is as follows.
+
+#syntax:
+dict_name.setdefault(key, default_value)
+Example 1: Passing an existing key to the setdefault() function.
+
+dict_1 = {1: 'A', 2: 'B', 3: 'C'}
+
+#Passing an existing key 3 
+val = dict_1.setdefault(3, 'D')
+
+print("The value of key 3 is: ", val)
+#Output: The value of key 3 is :  C
+
+print("dict_1: ", dict_1)
+#Output: dict_1:  {1: 'A', 2: 'B', 3: 'C'}
+Example 2: Passing a non-existing key and a default_value to the setdefault() function
+
+dict_1 = {1: 'A', 2: 'B', 3: 'C'}
+
+#passing a non-esisting key and default_value
+#to the get() method
+val = dict_1.setdefault(4, 'D')
+
+print("The value of key 4 is : ", val)
+#Output: The value of key 4 is :  D
+
+print(dict_1)
+#Output: {1: 'A', 2: 'B', 3: 'C', 4: 'D'}
+“in” Operator
+The “in” operator checks if an element is present in a dictionary and returns a boolean value. The “in” operator returns True, if the item is found in the dictionary. Otherwise, it returns False.
+
+Example 1: In the following program, we check if the key ‘Age’ exists in dict_1 using “in” operator.
+
+my_dict = {'Name' : 'John', 'Age': 10, 'City': 'London'}
+if 'Name' in my_dict:
+    print("Key found")
+else:
+    print("key not Found")
+
+#Output: Key found
+Example 2: In the following program, we use the dict_1.values() to obtain all the values in the dict_1. The in operator is then used to check the existence of the value ‘London’ in dict_1.
+
+my_dict = {'Name' : 'John', 'Age': 10, 'City': 'London'}
+if 'London' in my_dict.values():
+    print("Value found")
+else:
+    print("Value not Found")
+
+#Output: Value found
+all()
+The all() function takes an iterable(list, tuple, dictionary, etc.) as an argument and returns True if all the elements in the iterable are True. Otherwise, it returns False.
+
+The syntax for the all() function is as follows.
+
+#syntax:
+all(iterable)
+#iterable can be a list, dictionary, tuple, etc.
+In the case of dictionaries, the all() function returns True, if all the keys of the dictionary are True or the dictionary is empty. Else, it returns False.
+
+Example,
+
+#All the keys in dict_1 are evaluated to True
+dict_1 = {1: 'john', 2: 'Zara'}
+print(all(dict_1))
+#Output: True
+
+#The key 0 is evaluated as False.
+dict_2 = {0: 'john', 1: 'Zara'}
+print(all(dict_2))
+#Output: False
+
+#An empty dictionary is evaluated to True
+dict_3 = {}
+print(all(dict_3))
+#Output: True
+any()
+The any() function takes an iterable as an argument and returns True if any of the elements in the iterable is true. Otherwise, it returns False. The syntax for any() function is as follows.
+
+#syntax:
+any(iterable)
+#iterable can be a list, dictionary, tuple, etc.
+In the case of dictionaries, any() function returns False, if all the keys of the dictionary are False or the dictionary is empty. If at least one key is True, the any() function returns True.
+
+Example,
+
+#All the keys in dict_1 are False
+dict_1 = {0: 'john', False: 'Zara'}
+print(any(dict_1))
+#Output: False
+
+#The key 0 is evaluated as False.
+#The key 1 is evaluated as True.
+dict_2 = {0: 'john', 1: 'Zara'}
+print(any(dict_2))
+#Output: True
+
+#An empty dictionary is evaluated to False
+dict_3 = {}
+print(any(dict_3))
+#Output: False
+len()
+The len() function returns the number of key-value pairs in the dictionary. The syntax for the len() function is as follows.
+
+#syntax:
+len(dict_name)
+Example,
+
+my_dict = {'Name' : 'John', 'Age': 10, 'City': 'London'}
+print(len(my_dict))
+#Output: 3
+sorted()
+The sorted() function is a built-in function in python that returns a sorted sequence. The syntax for the sorted() function is as follows.
+
+#syntax:
+sorted(sequence, key, reverse)
+#The sequence can be a list, tuple, dictionary, etc. 
+The parameter reverse takes a boolean value. If the reverse is set to True, it sorts the list in descending order.
+The parameter key takes a function as a value for user-defined comparison.
+Example 1: In the following example, we sort all the keys of the dictionary dict_1 in ascending and descending order.
+
+#Sorting keys in ascending order
+dict_1 = {1: 'Apple', 4: 'Mango', 2: 'Guava'}
+print(sorted(dict_1))
+#Output: [1, 2, 4]
+
+#Sorting keys in descending order 
+#by setting reverse = True
+dict_1 = {1: 'Apple', 4: 'Mango', 2: 'Guava'}
+print(sorted(dict_1, reverse = True))
+#Output: [4, 2, 1]
+Example 2: Sorting the dictionary keys based on the length of the key elements.
+
+Consider the dictionary dict_1 = {‘abc’: 1, ‘b’: 2, ‘cd’: 3}. In the sorted() function, we set key = len, to sort the keys of the dictionary based on the length of the keys. The length of the strings are in order of ‘b’ < ‘cd’ < ‘abc’. Hence, we get output as [‘b’, ‘cd’, ‘abc’].
+
+dict_1 = {'abc': 1, 'b': 2, 'cd': 3}
+print(sorted(dict_1, key = len))
+#Output: ['b', 'cd', 'abc']
+Example 3: In the following example, we sort all the values of the dictionary dict_1 in ascending and descending order.
+
+#Sorting values in ascending order
+dict_1 = {1: 'A', 2: 'C', 3: 'B'}
+print(sorted(dict_1.values()))
+#Output: ['A', 'B', 'C']
+
+#Sorting values in descending order 
+#by setting reverse = True
+dict_1 = {1: 'A', 2: 'C', 3: 'B'}
+print(sorted(dict_1.values(), reverse = True))
+#Output: ['C', 'B', 'A']
+Dictionary Vs List
+Dictionary	List
+A dictionary is a collection of key-value pairs.	A list is a collection of elements.
+The key-value pairs are enclosed within curly brackets{}.	The elements in the list are enclosed within square brackets[].
+The values in the dictionary are accessed by keys.	The elements in the list are accessed by their indices value
+The keys in a dictionary must be unique, whereas the values can be duplicated.	The list allows the user to store duplicate elements.
+Dictionary Interview Questions
+What will be the output of the following code block?
+dict_1 = {'A': 1, 'B': 2, 'C': 3}
+dict_2 = dict_1.copy()
+print(id(dict_1) == id(dict_2))
+Output: False
+
+In the above code, we created the shallow copy of the dict_1. Creating a shallow copy copies the address of original elements, but creates two different dictionary objects. Hence, the memory addresses for both dictionaries will be different.
+
+2. What will be the output of the following code block?
+
+dict_a = {(1,2):1,(2,3):2}
+print(dict_a[1,2])
+Output: 1
+
+The dict_a[1, 2] search for key (1, 2) in dict_a and return the corresponding value of key (1, 2) i.e. 1.
+
+3. What will be the output of the following code block?
+
+fruits_dict = {}
+def addone(fruit):
+    if fruit in fruits_dict:
+        fruits_dict[fruit] += 1
+    else:
+        fruits_dict[fruit] = 1
+        
+addone('Apple')
+addone('Orange')
+addone('apple')
+print (len(fruits_dict))
+Output: 3
+
+The fruits_dict = {} represents an empty fruits dictionary. The user_defined addone() function takes fruit as a parameter and adds it to the fruits_dict dictionary. If the fruit is already present, the count is incremented by 1. Otherwise, the fruit is assigned with count 1.
+
+In the first function call, the item ‘Apple’ gets added to the dictionary with the count 1. The dictionary is updated to {‘Apple’: 1}.
+
+In the second function call, the item ‘Orange’ gets added to the dictionary with the count 1. The dictionary is updated to {‘Apple’: 1, ‘Orange’: 1}.
+
+In the third function call, the item ‘apple’ gets added to the dictionary with the count 1. The dictionary is updated to {‘Apple’: 1, ‘Orange’: 1, ‘apple’: 1}.
+
+The len(fruits_dict) gives the length of the total key-value pairs, which is 3.
+
+4. What will be the output of the following code block?
+
+dict_1 = {}
+dict_1[1] = 1
+dict_1['1'] = 2
+dict_1[1.0] = 4
+ 
+count = 0
+for k in dict_1:
+    count += dict_1[k]
+    
+print (count)
+Output: 6
+
+The dict_1 = {} represents an empty dictionary. The dict_1[1] = 1 adds a new key-value pair {1: 1}, the dict_1[‘1’] = 2 adds another pair and updates the dictionary to {1: 1, ‘1’: 2}. The dict_1[1.0] = 4, will modify the value of key 1 to 4 since, both 1 and 1.0 are same. Now, the dictionary gets updated to dict_1 = {1: 2, ‘1’: 4}.
+
+A variable count is initialized with a value of 0. A for loop iterates over each key of the dictionary. In each iteration, the value of each key is added to the variable count. The count stores the sum of all the values in the dictionary, which is 6.
+
+5. What will be the output of the following code block?
+
+my_dict = {}
+my_dict[(3,2,4)] = 8
+my_dict[(4,7,1)] = 10
+my_dict[(1,8)] = 12
+ 
+count = 0
+for k in my_dict:
+   count += my_dict[k]
+ 
+print(count)
+print(my_dict)
+Output:
+
+30
+{(3, 2, 4): 8, (4, 7, 1): 10, (1, 8): 12}
+The my_dict= {} represents an empty dictionary. The statements my_dict[(3,2,4)] = 8, my_dict[(4,7,1)] = 10, my_dict[(1,8)] = 12 will add the key-value pairs to the my_dict. The dictionary my_dict is now updated to {(3, 2, 4): 8, (4, 7, 1): 10, (1, 8): 12}.
+
+A variable count is initialized with a value of 0. A for loop iterates over each key of the dictionary. In each iteration, the value of each key is added to the variable count. The count stores the sum of all the values in the dictionary my_dict, which is 30.
+
+6. What will be the output of the following code block?
+
+lower = {}
+upper = {}
+alphabets = {}
+lower['a'] = 1
+lower['b'] = 2
+upper['A'] = 1
+alphabets['lower'] = lower
+alphabets['upper'] = upper
+print(len(alphabets[lower]))
+Output: TypeError
+
+The lower = {}, upper = {}, alphabets = {} creates three empty dictionaries. The lower[‘a’] = 1, lower[‘b’] = 2 updates the lower dictionary to {‘a’: 1, ‘b’: 2}. The upper[‘A’] = 1 updates adds the key-value pair and update it to {‘A’: 1}.
+
+Now, the statements alphabets[‘lower’] = lower, alphabets[‘upper’] = upper creates nested dictionaries. The alphabet dictionary is updated to {‘lower’: {‘a’: 1, ‘b’: 2}, ‘upper’: {‘A’: 1}}.
+
+In the last statement, len(alphabets[lower]) returns a TypeError because the key lower is unhashable. The key can be a string, number, or tuple. If we change the key from lower to ‘lower’ then the statement len(alphabets[‘lower’]) will give output as 2.
+
+7. What will be the output of the following code block?
+
+dict_a = {'a': 4, 'b': 6}
+print(dict_a['a', 'b'])
+Output: KeyError
+
+The program throws a KeyError because dict_a[‘a’, ‘b’] will look for key (‘a’, ‘b’) in dict_a. The key (‘a’, ‘b’) is not present in the dictionary. Hence, the program throws a KeyError exception.
+
+8. What will be the output of the following code block?
+
+my_dict = {}
+my_dict['a'] = 1
+my_dict['1'] = 2
+my_dict['a'] += 1
+ 
+count = 0
+for k in my_dict:
+    count += my_dict[k]
+print(count)
+Output: 4
+
+The my_dict= {} represents an empty dictionary. The statements my_dict[‘a’] = 1, my_dict[‘1’] = 2 will add the key-value pairs to the dictionary my_dict = {‘a’: 1, ‘1’: 2}. The my_dict[‘a’] +=1 increments the value of key ‘a’ by 1. Now the my_dict is updated to {‘a’: 2, ‘1’: 2}.
+
+A variable count is initialized with a value of 0. A for loop iterates over each key of the dictionary. In each iteration, the value of each key is added to the variable count. The count stores the sum of all the values in the dictionary my_dict, which is 4.
+
+9. What will be the output of the following code block?
+
+dict_1 = {'Name': 'John', 'Age': 20}
+id1 = id(dict_1)
+del dict_1
+dict_1 = {'Name': 'John', 'Age': 20}
+id2 = id(dict_1)
+print(id1 == id2)
+Output: True
+
+When we delete an object and then recreate it, python points again to that same object in memory.
+
+10. What will be the output of the following code block?
+
+dict = {'c': 97, 'a': 96, 'b': 98}
+for k in sorted(dict):
+    print (dict[k])
+Output:
+
+96, 98 97
+The sorted(dict) returns a list of sorted keys [‘a’, ‘b’, ‘c’]. Traversing through the list of sorted keys will print their value like 96, 98, 97.
+
+FAQ on Dictionary
+How to Create a Dictionary in Python?
+The Dictionary can be created by placing the item with curly braces { }. A dictionary consists of key-value pair separated by a colon (key: value).
+
+my_dict={1:"chercher",2:"pythonwife",3:"technology"}
+print(my_dict)
+Output
+
+{1: 'chercher', 2: 'pythonwife', 3: 'technology'}
+How to Sort a Dictionary in Python?
+The dictionary can be sorted using the sorted() function. The keys alone can be sorted using the keys() function. The values in the dictionary can be sorted using the values() function. The whole key-value pair can be sorted using the items() function.
+
+names = {9:'Alice' ,2:'John' ,41:'Peter' ,33:'Andrew' ,6:'Ruffalo' ,50:'Chris' }  
+print("sort only keys") 
+print(sorted(names.keys()))  
+print("sort only values")  
+print(sorted(names.values()))
+print("sort key-value pair")
+print(sorted(names.items()))
+Output
+
+sort only keys
+[2, 6, 9, 33, 41, 50]
+sort only values
+['Alice', 'Andrew', 'Chris', 'John', 'Peter', 'Ruffalo']
+sort key-value pair
+[(2, 'John'), (6, 'Ruffalo'), (9, 'Alice'), (33, 'Andrew'), (41, 'Peter'), (50, 'Chris')]
+How to Sort Dictionary by Value in Python?
+Using the sorted() function and lambda the dictionary can be sort by value.
+
+markdict = {"Tom":67, "Tina": 54, "Akbar": 87, "Kane": 43, "Divya":73}
+marklist = sorted(markdict.items(), key=lambda x:x[1])
+sortdict = dict(marklist)
+print(sortdict)
+Output
+
+{'Kane': 43, 'Tina': 54, 'Tom': 67, 'Divya': 73, 'Akbar': 87}
+How to Loop through a Dictionary in Python?
+The for loop can be used to loop through the dictionary.
+
+d = {'x': 1, 'y': 2, 'z': 3} 
+for key in d:
+    print (key, 'corresponds to', d[key])
+Output
+
+x corresponds to 1
+y corresponds to 2
+z corresponds to 3
+
+How to Iterate through a Dictionary in Python?
+In the dictionary we can iterate in 3 ways:
+
+Through keys
+Through values
+Through key-value pair
+statesAndCapitals = {
+                     'England' : 'London',
+                     'Northern Ireland' : 'Belfast',
+                     'Scotland' : 'Edinburgh',
+                     'Wales' : 'Cardiff'
+                    }
+print('Iterate through keys')
+for state in statesAndCapitals:
+    print(state,end=" ")
+print('\n\nIterate through values')
+for capital in statesAndCapitals.values():
+    print(capital,end=" ")
+print('\n\nIterate through key-value pair')
+for state, capital in statesAndCapitals.items():
+    print(state, ":", capital
+Output
+
+Iterate through keys
+England Northern Ireland Scotland Wales 
+
+Iterate through values
+London Belfast Edinburgh Cardiff 
+
+Iterate through key-value pair
+England : London
+Northern Ireland : Belfast
+Scotland : Edinburgh
+Wales : Cardiff
+How to Print Dictionary in Python?
+The name of the dictionary is passed as an argument to the print() function to print the dictionary.
+
+my_dict={1:"chercher",2:"pythonwife",3:"technology"}
+print(my_dict)
+Output
+
+{1: 'chercher', 2: 'pythonwife', 3: 'technology'}
+How to Add Key to Dictionary in Python?
+Using subscript notation we can add keys to the dictionary.
+
+dict = {'key1':'Welcome', 'key2':'to'}
+print("Original Dict is: ", dict)
+dict['key2'] = 'PythonWife'
+dict['key3'] = 'Website'
+print("Updated Dict is: ", dict)
+Output
+
+Original Dict is:  {'key1': 'Welcome', 'key2': 'to'}
+Updated Dict is:  {'key1': 'Welcome', 'key2': 'PythonWife', 'key3': 'Website'}
+How To Check if a Key Exists in Dictionary using Python?
+The in operator can be used to check if the key is a member of the dictionary or not. The in operator is case sensitive.
+
+dict_1 = {"Pythonwife": 1, "Website":2, "Hey":3}
+if "Hey" in dict_1:
+    print("Exists")
+else:
+    print("Does not exist")
+if "webSite" in dict_1:
+    print("Exists")
+else:
+    print("Does not exist")
+Output
+
+Exists
+Does not exist
+How to Check If a Value is in a Dictionary using Python?
+The dict.values() method is used to check if the value is in a dictionary or not. This method returns true if the value is present in the dictionary, else returns false.
+
+dict_1 = {"Pythonwife": 1, "Website":2, "Hey":3}
+contains_1 = 1 in dict_1.values()
+print(contains_1)
+contains_2 = 5 in dict_1.values()
+print(contains_2)
+Output
+
+True
+False
+How to Initialize a Dictionary in Python?
+The dictionary can be initialized using dict() method or by the use of the {} symbol.
+
+empty = {}
+print(empty)
+print("Length:", len(empty))
+emptyDict = dict()
+print(emptyDict)
+print("Length:",len(emptyDict))
+Output
+
+{}
+Length: 0
+{}
+Length: 0
+How to Sort Dictionary by Key using Python?
+The dict.items() returns the dict_item object containing the key-value pair of the dictionary. The sorted() method will return a list of tuples sorted by key.
+
+a_dictionary = {"Python": 2, "Wife": 3, "Website": 1, "Welcome": 5, "All": 4, "To": 9, "You": 10}
+dictionary_items = a_dictionary.items()
+sorted_items = sorted(dictionary_items)
+print(sorted_items)
+Output
+
+[('All', 4), ('Python', 2), ('To', 9), ('Website', 1), ('Welcome', 5), ('Wife', 3), ('You', 10)]
+How to Declare a Dictionary in Python?
+The dictionary can be declared by placing the Key-Value pair separated by colon inside the {} symbol.
+
+sample={'Author':6,'Python':2,'Car':7}
+print(sample)
+Output
+
+{'Author': 6, 'Python': 2, 'Car': 7}
+How to Check if a Dictionary is Empty using Python?
+The bool() function can be used to check if a dictionary is empty or not.
+
+test_dict = {}
+print("The original dictionary : " + str(test_dict))
+res = not bool(test_dict)
+print("Is dictionary empty ? : " + str(res))
+Output
+
+The original dictionary : {}
+Is dictionary empty ? : True
+How to Get Value from Dictionary using Python?
+The dict.get() can be used to retrieve values from the dictionary. This method returns None if the value for the corresponding key is not available.
+
+sample_dic = {"PythonWife":1, "Website":2,"Hello":3,"World":4}
+print(sample_dic.get("PythonWife"))
+print(sample_dic.get("C"))
+Output
+
+1
+None
+How to Copy a Dictionary in Python?
+The copy() method can be used to make a copy of the dictionary.
+
+original_dict = {1:'one', 2:'two', 3:'Three', 4:'Four'}
+copied_dict = original_dict.copy()
+print('Orignal: ', original_dict)
+print('Copy: ', copied_dict)
+Output
+
+Orignal:  {1: 'one', 2: 'two', 3: 'Three', 4: 'Four'}
+Copy:  {1: 'one', 2: 'two', 3: 'Three', 4: 'Four'}
+How to Create an Empty Dictionary in Python?
+An empty dictionary can be created by simply placing the curly braces {}.
+
+my_dict={}
+print(my_dict)
+Output
+
+{}
+How to Remove a Key from the Dictionary in Python?
+The key can be removed from the dictionary in 3 ways:
+
+Using del keyword
+Using pop() method
+Using items() and dictionary comprehension.
+test_dict = {"Alen" : 22, "Amar" : 21, "Melina" : 21, "Haritha" : 21, "John" :22}
+del test_dict['Amar']
+print ("After removal using del : " + str(test_dict))
+removed_value = test_dict.pop('Melina')
+print ("After removal using pop : " + str(test_dict))
+new_dict = {key:val for key, val in test_dict.items() if key != 'John'}
+print ("After removal using items and dict comprehension : " + str(new_dict))
+Output
+
+After removal using del : {'Alen': 22, 'Melina': 21, 'Haritha': 21, 'John': 22}
+After removal using pop : {'Alen': 22, 'Haritha': 21, 'John': 22}
+After removal using items and dict comprehension : {'Alen': 22, 'Haritha': 21}
+How to Reverse a Dictionary in Python?
+The reverse(), OrderedDict() and items() method can be used to reverse the key-value pair in the dictionary.
+
+from collections import OrderedDict
+test_dict = {"a": 1, "b": 2,"c":3,"z":4,"d":5,"y":8}
+reversed_dictionary = OrderedDict(reversed(list(test_dict.items())))
+print(reversed_dictionary)
+Output
+
+OrderedDict([('y', 8), ('d', 5), ('z', 4), ('c', 3), ('b', 2), ('a', 1)])
+How to Index a Dictionary in Python?
+The list() is used to convert a dictionary to a list. Then the Indexing is used to index the key in the list.
+
+a_dictionary = {"a": 1, "b": 2}
+keys_list = list(a_dictionary)
+a_key = keys_list[1]
+print(a_key)
+Output
+
+b
+How to Convert a List to Dictionary in Python?
+The dict() method is used to convert a list to a dictionary, where the consecutive elements are made as key-value pairs. Then the list is typecasted to dict datatype.
+
+def Convert(lst):
+	res_dct = {lst[i]: lst[i + 1] for i in range(0, len(lst), 2)}
+	return res_dct
+lst = ["hi",1,"hello",2,"Pythonwife",3,"Website",4]
+print(Convert(lst))
+Output
+
+{'hi': 1, 'hello': 2, 'Pythonwife': 3, 'Website': 4}
+How to Find the Max Value in a Dictionary using Python?
+The max() function can be used to get the maximum value in the dictionary. The dict.get is used to get the key paired with the maximum value.
+
+a_dictionary = {'hi': 1, 'hello': 2, 'Pythonwife': 3, 'Website': 4}
+max_key = max(a_dictionary, key=a_dictionary.get)
+print(max_key)
+Output
+
+Website
+How to Convert a Dictionary to List in Python?
+The items() method is used to convert the key-value pairs into list. The values() method is used to convert the values of the dictionary into list. The keys() method is used to convert the keys of the dictionary into list.
+
+d1 = {'name': 'Alen', 'age': 23, 'marks': 56}
+d1.items()
+l1 = list(d1.items())
+print("Using items() \n",l1)
+d1.keys()
+l2 = list(d1.keys())
+print("Using keys() \n",l2)
+l3 = list(d1.values())
+print("Using values() \n",l3)
+Output
+
+Using items() 
+ [('name', 'Alen'), ('age', 23), ('marks', 56)]
+Using keys() 
+ ['name', 'age', 'marks']
+Using values() 
+ ['Alen', 23, 56]
+How to Get a List of Values from a Dictionary in Python?
+The values() function can be used to geta list of values from the dictionary.
+
+sample={"hello":"hi","Welcome":9,"Pythonwife":3,"website":9}
+result = list(sample.values())
+print("The list of values in the given dictionary is\n",result)
+Output
+
+The list of values in the given dictionary is
+ ['hi', 9, 3, 123]
+How to Change a Value in a Dictionary using Python?
+The update() method is used to change the value if the key already exists. If the key is not in the dictionary, this method will add the element to the dictionary.
+
+print("Original : ")
+sample = {1: "one", 2: "three",4:"four","hello":"world","Welcome":"Pythonwife"}
+print(sample)
+d1 = {2: "two"}
+sample.update(d1)
+print("Updating an existing element")
+print(sample)
+d1 = {3: "three"}
+sample.update(d1)
+print("Updating an element that does not exist")
+print(sample)
+Output
+
+Original : 
+{1: 'one', 2: 'three', 4: 'four', 'hello': 'world', 'Welcome': 'Pythonwife'}
+Updating an existing element
+{1: 'one', 2: 'two', 4: 'four', 'hello': 'world', 'Welcome': 'Pythonwife'}
+Updating an element that does not exist
+{1: 'one', 2: 'two', 4: 'four', 'hello': 'world', 'Welcome': 'Pythonwife', 3: 'three'}
+How to Write a Dictionary to a File in Python?
+The json.dumps() method can be used to write dictionaries to a file.
+
+import json
+details = {'Name': "Pythonwife",
+		'Category' :"WEbsite",
+          'Purpose' : "education"}
+with open('convert.txt', 'w') as convert_file:
+	convert_file.write(json.dumps(details))
+Output
+
+Context
+The covert.txt file after executing the code
+How to Get Length of Dictionary in Python?
+The len() method can be used to get the length of the dictionary in python.
+
+sample = {1: 'one', 2: 'two', 4: 'four', 'hello': 'world', 'Welcome': 'Pythonwife', 3: 'three'}
+print("LENGTH = ",len(sample))
+Output
+
+LENGTH =  6
+How to Print Keys of Dictionary in Python?
+The dict.keys() method is used to print the keys of the dictionary in python.
+
+sample = {1: 'one', 2: 'two', 4: 'four', 'hello': 'world', 'Welcome': 'Pythonwife', 3: 'three'}
+print("The keys of the dictionary are\n",sample.keys())
+Output
+
+The keys of the dictionary are
+ dict_keys([1, 2, 4, 'hello', 'Welcome', 3])
+How to Return a Dictionary in Python?
+The dictionary can be returned from a function by simply returning the name of the dictionary.
+
+def sample():
+    d1={1:"one",2:"two",3:"three"}
+    return d1
+print(sample())
+Output
+
+{1: 'one', 2: 'two', 3: 'three'}
+How to Invert a Dictionary in Python?
+The dictionary can be inverted in 4 ways:
+
+Using dict comprehension
+Using dict.keys() and dict.values()
+Using map() and reverse
+ini_dict = {101: "akshat", 201 : "ball", 303 : "bat",22 : "Sweet"}
+print("initial dictionary : ", str(ini_dict))
+print("Using dict comprehension")
+inv_dict = {v: k for k, v in ini_dict.items()}
+print(str(inv_dict))
+print("Using keys() and values()")
+inv_dict = dict(zip(ini_dict.values(), ini_dict.keys()))
+print(str(inv_dict))
+print("Using map() and reversed")
+inv_dict = dict(map(reversed, ini_dict.items()))
+print(str(inv_dict))
+Output
+
+initial dictionary :  {101: 'akshat', 201: 'ball', 303: 'bat', 22: 'Sweet'}
+Using dict comprehension
+{'akshat': 101, 'ball': 201, 'bat': 303, 'Sweet': 22}
+Using keys() and values()
+{'akshat': 101, 'ball': 201, 'bat': 303, 'Sweet': 22}
+Using map() and reversed
+{'akshat': 101, 'ball': 201, 'bat': 303, 'Sweet': 22}
+How to Increment a Value in Dictionary using Python?
+The standard dict operations can be used to increment a value in the dictionary. Similarly dict.get() can also be used to increment a value in the dictionary.
+
+a_dict = {"a": 1, "b" : 2, "c" : 3, "d" : 4}
+a_dict["a"] += 1
+print(a_dict)
+a_dict = {"a":1}
+a_dict["b"] = a_dict.get("b",0) + 1
+print(a_dict)
+Output
+
+{'a': 2, 'b': 2, 'c': 3, 'd': 4}
+{'a': 1, 'b': 1}
+How to Create a Dictionary from a CSV File in Python?
+The DictReader() is used to create dictionary from CSV file.
+
+import csv
+filename ="sample.csv"
+with open(filename, 'r') as data:
+    for line in csv.DictReader(data):
+        print(line)
+Csv
+sample.csv
+Output
+
+{S.no': '1', 'Name': 'Alen', 'Age': '21', 'Marks': '99'}
+{S.no': '2', 'Name': 'Bing', 'Age': '32', 'Marks': '100'}
+{S.no': '3', 'Name': 'Ross', 'Age': '45', 'Marks': '89'}
+{S.no': '4', 'Name': 'Graze', 'Age': '21', 'Marks': '78'}
+How to Clear a Dictionary in Python?
+The clear() method can be used to clear the dictionary.
+
+my_dict={'S.no': '4', 'Name': 'Graze', 'Age': '21', 'Marks': '78'}
+my_dict.clear()
+print(my_dict)
+Output
+
+{}
+How to Convert String to Dictionary in Python?
+The generator expressions can be used to convert the given string into the dictionary.
+
+string = "Pythonwife - 13, Python - 14, Website - 15"
+Dict = dict((x.strip(), y.strip())
+			for x, y in (element.split('-')
+			for element in string.split(', ')))
+print(Dict)
+Output
+
+{'Pythonwife': '13', 'Python': '14', 'Website': '15'}
+How to Create a Dictionary of Lists in Python?
+The subscript method can be used to create the dictionary of lists.
+
+myDict = {}
+myDict["key1"] = ["United", "Kingdom"]
+myDict["key2"] = ["Python", "wife", "Website"]
+print(myDict)
+Output
+
+{'key1': ['United', 'Kingdom'], 'key2': ['Python', 'wife', 'Website']}
+How to Change a Key in Dictionary using Python?
+The pop() method along with assignment operator(=) can be used to change a key in the Dictionary.
+
+my_dict = {'Nikhil': 99, 'Alen' : 98,
+			'Joseph' : 100, 'Racheal' : 95}
+print ("initial dictionary", my_dict)
+my_dict['Andrew'] = my_dict.pop('Alen')
+print ("final dictionary", str(my_dict))
+Output
+
+initial dictionary {'Nikhil': 99, 'Alen': 98, 'Joseph': 100, 'Racheal': 95}
+final dictionary {'Nikhil': 99, 'Joseph': 100, 'Racheal': 95, 'Andrew': 98}
+How to Create a Dictionary from a File in Python?
+#data.txt
+Language 100
+Technology 98
+Literature 99
+
+a_dictionary = {}
+a_file = open("data.txt")
+for line in a_file:
+    key, value = line.split()
+    a_dictionary[key] = value
+print(a_dictionary)
+Output
+
+{'Language': '100', 'Technology': '98', 'Literature': '99'}
+How to Combine Two Lists into a Dictionary using Python?
+The zip() method can be used to combine two lists into a dictionary.
+
+test_keys = ["Alen", "Andrew", "Charlie"]
+test_values = [100, 94, 65]
+print ("Original key list is : " + str(test_keys))
+print ("Original value list is : " + str(test_values))
+res = dict(zip(test_keys, test_values))
+print ("Resultant dictionary is : " + str(res))
+Output
+
+Original key list is : ['Alen', 'Andrew', 'Charlie']
+Original value list is : [100, 94, 65]
+Resultant dictionary is : {'Alen': 100, 'Andrew': 94, 'Charlie': 65}
+How to Access Nested Dictionary in Python?
+The indexing method can be used to access any value in the nested dictionary.
+
+My_Dict = { 'Dict1': {'name': 'Alen', 'age': '19'},
+         'Dict2': {'name': 'Bob', 'age': '25'},
+          'Dict3': {'name':'Joseph', 'age': '36'}}
+print(My_Dict['Dict1']['name'])
+print(My_Dict['Dict2']['age'])
+Output
+
+Alen
+25
+What is the Runtime of Accessing a Value in a Dictionary using Python?
+The Time Complexity of accessing a value in a dictionary id O(n).
+
+my_dict = {'name': 'Jack', 'age': 26}
+print(my_dict['name'])
+print(my_dict.get('age'))
+Output
+
+Jack
+26
+How to Select a Random Key from a Dictionary in Python?
+The random.choice() method can be used to get a random entry from a dictionary.
+
+import random
+my_dict={'Nikhil': 99, 'Joseph': 100, 'Racheal': 95, 'Andrew': 98}
+entry_list = list(my_dict.items())
+random_entry = random.choice(entry_list)
+print(random_entry)
+Output
+
+('Racheal', 95)
+How to Delete an Item from Dictionary in Python?
+An item in the dictionary can be deleted in 3 ways:
+
+Using pop() method.
+Using popitem() method, the last inserted item can de deleted.
+Using del keyword.
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964,
+  "mileage": 60,
+  "quality":"best"
+}
+thisdict.pop("model")
+print("Using pop method")
+print(thisdict)
+print("Using pop item method")
+thisdict.popitem()
+print(thisdict)
+print("Using del keyword")
+del thisdict["mileage"]
+print(thisdict)
+Output
+
+Using pop method
+{'brand': 'Ford', 'year': 1964, 'mileage': 60, 'quality': 'best'}
+Using pop item method
+{'brand': 'Ford', 'year': 1964, 'mileage': 60}
+Using del keyword
+{'brand': 'Ford', 'year': 1964}
+How to Make a Dictionary of Dictionaries in Python?
+A Nested dictionary can be created by placing the comma-separated dictionaries enclosed within the braces.
+
+Dict = {1: 'Python', 2: 'Wife', 3: {'A' : 'Welcome', 'B' : 'To', 'C' : 'Website'}}
+print(Dict)
+Output
+
+{1: 'Python', 2: 'Wife', 3: {'A': 'Welcome', 'B': 'To', 'C': 'Website'}}
+How to Convert Unicode to Dictionary in Python?
+The built-in package ast can be used to convert a Unicode string into a dictionary.
+
+import ast
+d = ast.literal_eval("{'code1':1,'code2':1}")
+print(d)
+Output
+
+{'code1': 1, 'code2': 1}
+How to Duplicate a Dictionary in Python?
+The copy() method can be used to duplicate a dictionary (makes a shallow copy).
+
+my_dict = {1:'one', 2:'two'}
+duplicate = my_dict.copy()
+print('Orignal: ', my_dict)
+print('Duplicate: ', duplicate)
+Output
+
+Orignal:  {1: 'one', 2: 'two'}
+Duplicate:  {1: 'one', 2: 'two'}
+How to Check if a Word is in a Dictionary using Python?
+The in operator can be used to check if a word is in the dictionary as a key. The in operator with values() function can be used to check if a word is in the dictionary as a value
+
+pets = {'cats': 1, 'dogs': 2, 'fish': 3, 'parrot':4,5:'Lion'}
+if 'parrot' in pets:
+    print('parrot found!')
+if 'Lion' in pets.values():
+    print('Lion found')
+Output
+
+parrot found!
+Lion found
+How to Delete a Dictionary in Python?
+The dict.clear() method can be used to delete a dictionary.
+
+inp_dict = {"A":"Python","B":"Java","C":"Fortan","D":"Javascript"}
+del inp_dict
+print("Dictionary is deleted ",inp_dict)
+Output
+
+Dictionary is deleted  {}
+How to Slice a Dictionary in Python?
+The dict comprehension and indexing method can be used to slice a dictionary.
+
+d = {1:2, 3:4, 5:6, 7:8}
+l = (1,5)
+print({k:d[k] for k in l if k in d})
+Output
+
+{1: 2, 5: 6}
+How to Get First Key in Dictionary using Python?
+The list() and keys() method can be used to get the first key in the dictionary.
+
+test_dict = {'Hello' : 1, 'new' : 2, 'world' : 3}
+res = list(test_dict.keys())[0]
+print("The first key of dictionary is : " + str(res))
+Output
+
+The first key of dictionary is : Hello
+How to Create Dictionary from Json File in Python?
+The load() function in JSON library is used to create a dictionary from the JSON file.
+
+#data.json
+{
+   "people1":[
+      {
+         "name":"Nikhil",
+         "website":"abc.com",
+         "from":"London"
+      },
+      {
+         "name":"Alen",
+         "website":"wdvs.com",
+         "from":"France"
+      }
+   ],
+   "people2":[
+      {
+         "name":"John",
+         "website":"dfsg.com",
+         "from":"Newyork"
+      }
+   ]
+}
+import json
+with open('data.json') as json_file:
+	data = json.load(json_file)
+	print("Type:", type(data))
+	print("\nPeople1:", data['people1'])
+	print("\nPeople2:", data['people2'])
+Output
+
+Type: <class 'dict'>
+People1: [{'name': 'Nikhil', 'website': 'abc.com', 'from': 'London'}, {'name': 'Alen', 'website': 'wdvs.com', 'from': 'France'}]
+People2: [{'name': 'John', 'website': 'dfsg.com', 'from': 'Newyork'}]
+How to Pass a Dictionary to a Function in Python?
+The dictionary can be passed as an argument to function like any other variable is passed.
+
+def func(d):
+	for key in d:
+		print("key:", key, "Value:", d[key])
+		
+# Driver's code
+D = {'a':1, 'b':2, 'c':3}
+func(D)
+Output
+
+key: a Value: 1
+key: b Value: 2
+key: c Value: 3
+How to Add Tuple to Dictionary in Python?
+The tuple can be passed to the append() function, to add tuple as the value to the dictionary.
+
+my_dict = {'Key1': [(1.000, 2.003, 3.0029)]}
+my_dict['Key1'].append((2.3232, 13.5232, 1325.123))
+print(my_dict)
+Output
+
+{'Key1': [(1.0, 2.003, 3.0029), (2.3232, 13.5232, 1325.123)]}
+How to Split a Dictionary in Python?
+The keys() and values() methods can be used to split a dictionary into a list of keys and a list of values.
+
+ini_dict = {'a' : 'Alen', 'b' : 'Bob', 'c': 'Charlie'}
+keys = ini_dict.keys()
+values = ini_dict.values()
+print ("keys : ", str(keys))
+print ("values : ", str(values))
+Output
+
+keys :  dict_keys(['a', 'b', 'c'])
+values :  dict_values(['Alen', 'Bob', 'Charlie'])
+How to Create a Nested Dictionary in Python?
+A Nested dictionary can be created by placing the comma-separated dictionaries enclosed within braces.
+
+Dict = {1: 'Welcome', 2: 'to', 3: {'A' : 'Python', 'B' : 'Wife', 'C' : 'Website'}}
+print(Dict)
+Output
+
+{1: 'Welcome', 2: 'to', 3: {'A': 'Python', 'B': 'Wife', 'C': 'Website'}}
+How to Compare Dictionaries using Python?
+The all() method can be used to compare dictionaries.
+
+test_dict1 = {'Pythonwife' : 1, 'is' : 2, 'best' : 3, 'for' : 4, 'Learning' : 5}
+test_dict2 = {'Pythonwife' : 2, 'is' : 3, 'best' : 3, 'for' : 7, 'Learning' : 5}
+print("The dictionary 1 : " + str(test_dict1))
+print("The dictionary 2 : " + str(test_dict2))
+comp_keys = ['best', 'Learning']
+res = all(test_dict1.get(key) == test_dict2.get(key) for key in comp_keys)
+print("Are dictionary equal : " + str(res))
+Output
+
+The dictionary 1 : {'Pythonwife': 1, 'is': 2, 'best': 3, 'for': 4, 'LearBy ning': 5}
+The dictionary 2 : {'Pythonwife': 2, 'is': 3, 'best': 3, 'for': 7, 'Learning': 5}
+Are dictionary equal : True
+How to Add Strings to a Dictionary in Python?
+By inserting a new index key into the dictionary, then assigning it a particular string, we can add strings to the dictionary.
+
+My_dict={1:"one",2:"two"}
+My_dict[3]="Hello"
+print(My_dict)
+Output
+
+{1: 'one', 2: 'two', 3: 'Hello'}
+Are Dictionaries Mutable in Python?
+The Dictionaries are mutable. The value in a dictionary can be changed by indexing it using keys.
+
+print("The original dictionary")
+My_dict={1: 'one', 2: 'two', 3: 'Hello'}
+print(My_dict)
+My_dict[3]="Three"
+print("The original dictionary")
+print(My_dict)
+Output
+
+The original dictionary
+{1: 'one', 2: 'two', 3: 'Hello'}
+{1: 'one', 2: 'two', 3: 'Three'}
+How are Python Dictionaries Different from Python Lists?
+The list is a collection of indexed values pairs. The dictionary is a collection of key-value pairs. The list items are enclosed within the [] symbol, while the key-value pairs in the dictionary are enclosed within the {} symbol separated by comma(,).
+
+print("List example")
+my_list=[1,2,3,4,5,6]
+print(my_list)
+print("Dictionary example")
+my_dict={1:"one",2:"two",3:"three"}
+print(my_dict)
+Output
+
+List example
+[1, 2, 3, 4, 5, 6]
+Dictionary example
+{1: 'one', 2: 'two', 3: 'three'}
+How to Filter Values in Dictionary using Python?
+The for loop and dict.items() can be used to iterate through the keys and the conditional statement is used to filter out the values.
+
+a_dictionary = {1: "a", 2: "b", 3: "c"}
+filtered_dictionary = {}
+for key, value in a_dictionary.items():
+    if (value == "b"):
+        filtered_dictionary[key] = value
+print(filtered_dictionary)
+Output
+
+{2: 'b'}
+How to Get a Subset of a Dictionary in Python?
+The dictionary comprehension can be used to get a subset of the dictionary.
+
+a_dictionary = {"website": 10, "Tech":0,"b": 2, "c": 3, "d": 4,"hello":5,"pythonwife":8}
+a_subset = {key: value for key, value in a_dictionary.items() if value > 2}
+a_subset
+Output
+
+{'website': 10, 'c': 3, 'd': 4, 'hello': 5, 'pythonwife': 8}
+How to Merge Two Dictionaries in Python?
+Two dictionaries can be merged using the update() method and ** symbol.
+
+def MergeUsingUpdate(dict1, dict2):
+    dict2.update(dict1)
+    return dict2
+dict1 = {'a': 10, 'b': 8}
+dict2 = {'d': 6, 'c': 4}
+print(MergeUsingUpdate(dict1, dict2))
+
+def Merge1(dict1, dict2):
+	res = {**dict1, **dict2}
+	return res
+dict1 = {'apple': 908, 'b': 55}
+dict2 = {'d': 'rtyh', 'Hello': 98}
+dict3 = Merge1(dict1, dict2)
+print(dict3)
+Output
+
+{'d': 6, 'c': 4, 'a': 10, 'b': 8}
+{'apple': 908, 'b': 55, 'd': 'rtyh', 'Hello': 98}
+What is the Default Dictionary in Python?
+The defaultdict is a container similar to the dictionaries in module collections. A dictionary-like object is returned by defaultdict, a subclass of the dict class. It does not raise the key error.
+
+def default_value():
+	return "Not Present"
+d = defaultdict(default_value)
+d["a"] = 1
+d["b"] = 2
+
+print(d["a"])
+print(d["b"])
+print(d["c"])
+Output
+
+1
+2
+Not Present
+Are Python Dictionaries Case Sensitive?
+Yes, the python dictionaries are case sensitive.
+
+sample={'apple': 908, 'b': 55, 'd': 'rtyh', 'Hello': 98}
+if("Apple" in sample):
+    print(True)
+else:
+    print(False)
+if("apple" in sample):
+    print(True)
+else:
+    print(False)
+Output
+
+False
+True
+Can a Tuple be a Dictionary Key in Python?
+Yes, a tuple is a hashable value and can be used as a dictionary key.
+
+coordinates = { (0,0) : 100, (1,1) : 200}
+coordinates[(1,0)] = 150
+coordinates[(0,1)] = 125
+coordinates[(0,1,0)] = 600
+print(coordinates)
+Output
+
+{(0, 0): 100, (1, 1): 200, (1, 0): 150, (0, 1): 125, (0, 1, 0): 600}
+Can Dictionaries be Used as Hashmaps in Python?
+Yes, the dictionaries can be used as hashmaps. The hash() function is used to find the hash values of the dictionary.
+
+sample = { 1.1: 'apple', 4504.1: 'bat' }
+for k,v in sample.items(): print(hash(k))
+Output
+
+230584300921369601
+230584300922212760
+Can Dictionaries in Python have Null Values?
+The dict.fromkeys() method can be used to have null values in the dictionary.
+
+ini_list = [1, 2, 3, 4, 5]
+print ("initial list", str(ini_list))
+res = dict.fromkeys(ini_list)
+print ("final dictionary", str(res))
+Output
+
+initial list [1, 2, 3, 4, 5]
+final dictionary {1: None, 2: None, 3: None, 4: None, 5: None}
+Can we Sum the Values for the Existing Keys in Dictionary using Python?
+The dict.values() method return the values in the dictionary. The sum(values) method can be used to find the sum of the values in the dictionary.
+
+a_dict = {"a":1, "b":2, "c": 3,"d":10,"e":4}
+values = a_dict.values()
+total = sum(values)
+print("Sum of values :",total)
+Output
+
+Sum of values : 20
+How to Print Unique Values in Dictionary using Python?
+The for loop is used to iterate through the dictionary and print the unique values.
+
+dict = {'511':'Alen','512':'Joseph','513':'Bob','514':'Bob','515':'Adam'}
+list =[] # create empty list
+for val in dict.values(): 
+  if val in list: 
+    continue 
+  else:
+    list.append(val)
+print(list)
+Output
+
+['Alen', 'Joseph', 'Bob', 'Adam']
+How to Find the Most Common Occurrence in Dictionary using Python?
+The dict comprehension and max() method can be used to find the most common occurrence in the dictionary.
+
+input_dict = {'A': 1963, 'B': 1963,
+    'C': 1964, 'D': 1964, 'E': 1964,
+    'F': 1965, 'G': 1965, 'H': 1966,
+    'I': 1967, 'J': 1967, 'K': 1968,
+    'L': 1969 ,'M': 1969,
+    'N': 1970}
+track={}
+for key,value in input_dict.items():
+    if value not in track:
+        track[value]=0
+    else:
+        track[value]+=1
+print(max(track,key=track.get))
+Output
+
+1964
+How to Find the Second Largest Value in the Dictionary using Python?
+The sorted() function with a negative index can be used to find the second largest value in the dictionary.
+
+example_dict ={"Pythonwife":30, "Education":15,
+"Website":29,"technology":19}
+result=sorted(example_dict.values())
+print("The second largest is :",result[-2])
+Output
+
+The second largest is : 29
+How to Flatten a Dictionary in Python?
+The json.normalise() method can be used to flatten a nested dictionary.
+
+import pandas as pd
+d = {'a': 1,
+     'c': {'a': 2, 'b': {'x': 5, 'y' : 10}},
+     'd': [1, 2, 3]}
+df = pd.json_normalize(d, sep='_')
+print(df.to_dict(orient='records')[0])
+Output
+
+{'a': 1, 'd': [1, 2, 3], 'c_a': 2, 'c_b_x': 5, 'c_b_y': 10}
+How to Print a Dictionary in Table format using Python?
+The for loops can be used to print the dictionary in a table format, as in a matrix.
+
+dict1 = {}
+dict1 = {(0, 0): 'Samuel', (0, 1): 21, (0, 2): 'Data structures',
+		(1, 0): 'Richie', (1, 1): 20, (1, 2): 'Machine Learning',
+		(2, 0): 'John', (2, 1):21, (2, 2): ' Java'
+}
+print(" NAME ", " AGE ", " COURSE " )
+for i in range(3):
+	for j in range(3):
+		print(dict1[(i, j)], end =' ')
+	print()
+Output
+
+NAME   AGE   COURSE 
+Samuel 21 Data structures 
+Richie 20 Machine Learning 
+John 21  Java 
+How to Pretty Print a Dictionary in Python?
+The pprint() method in pprint library can be used to pretty print a dictionary.
+
+import pprint
+dct_arr = [
+  {'Name': 'John', 'Age': '23', 'Country': 'USA'},
+  {'Name': 'Jose', 'Age': '44', 'Country': 'Spain'}
+]
+print(dct_arr)
+print("Pretty print")
+pprint.pprint(dct_arr)
+Output
+
+[{'Name': 'John', 'Age': '23', 'Country': 'USA'}, {'Name': 'Jose', 'Age': '44', 'Country': 'Spain'}]
+Pretty print
+[{'Age': '23', 'Country': 'USA', 'Name': 'John'},
+ {'Age': '44', 'Country': 'Spain', 'Name': 'Jose'}]
