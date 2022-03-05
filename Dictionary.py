@@ -39,3 +39,22 @@ print("New dictionary from 2 lists:\n",new_dict)
 
 min_dict = min(new_dict, key=new_dict.get)
 print("Finding KEY which is having MINIMUM value in above given dictionary:\n",min_dict)
+
+#delete a key in dictionary
+'''
+del d[k]
+It is highly recommended to make a shallow copy of original dictionary as deleting in original dictionary will update it. 
+
+def removekey(d,key):
+    r = dict(d)
+    del r[k]
+    return r
+'''
+def removekey(d,key):
+    _copyDict = d.copy()
+    _copyDict.pop(key)
+    return _copyDict
+
+key_to_remove=2
+remaining_dict = removekey(new_dict2,key_to_remove)
+print("Remaining Elements:\n",remaining_dict)
