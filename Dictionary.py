@@ -1,5 +1,10 @@
 ################### Python Built in datastructures - Dictionary ###################
 
+'''
+Time and space complexity of creating a dictionary
+The time complexity to create a dictionary is O(len(dict)), because when we create a dictionary,
+the hash function has to calculate hash values for each element in the dictionary. The space complexity to create a dictionary is O(N).
+'''
 import datetime
 print("Today's Date is :",datetime.datetime.now().date())
 
