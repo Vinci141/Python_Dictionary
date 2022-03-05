@@ -27,3 +27,11 @@ print("Merge 2 dictionaries \n",z)
 
 myDict['x'] = 30
 print("Adding new KEY to an existing Dictionary:\n",myDict)
+
+list1 = ['a','b','c']
+list2 = [1,2,3]
+
+new_dict = dict(zip(list1,list2))
+print("New dictionary from 2 lists:\n",new_dict)
+new_dict2 = {k:v for k,v in zip(list2,list1)}
+print("New dictionary from 2 lists using comprehension:\n",new_dict2)
